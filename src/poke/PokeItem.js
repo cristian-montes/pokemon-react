@@ -5,8 +5,12 @@ class PokeItem extends Component {
         const {pokes} = this.props;
         return (  
             <div>
-                <p>{pokes.pokemon}</p>
-                <img src={pokes.url_image} alt='pokers' />
+                <img src={pokes.url_image} alt='pokers'  width='200'/>
+                <h4>{pokes.pokemon}</h4>
+                <p>Type: {pokes.type_1}</p>
+                <p>Shape: {pokes.shape}</p>
+                <p>Ability 1: {pokes.ability_1}</p>
+                <p>Defense: {pokes.defense}</p>
             </div>
         );
     }

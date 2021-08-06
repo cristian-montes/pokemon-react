@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PokeList from './poke/PokeList';
 import DropDown from './dropDown/DropDownList';
+import Scroll from './scroll/Scroll'
 
 class App extends Component {
   state = { 
@@ -11,6 +12,9 @@ class App extends Component {
             sortOrder: 'asc'
            };
 
+    componentDidMount(){
+        this.fetchData();
+      }
 
     //GET DATA FROM APIS
    fetchData = async () => {
@@ -20,7 +24,7 @@ class App extends Component {
       } 
 
       let response = await fetch(url);
-      console.log(response);
+      console.log(response, 'link1');
       let dataAPI = await response.json();
 
       this.setState({ data: dataAPI.results, loading:false, });
@@ -34,7 +38,7 @@ class App extends Component {
       url = url + `?sort=defense&direction=${this.state.sortOrder}`;
     }
     let response = await fetch(url);
-    console.log(response);
+    console.log(response, 'link2');
     let dataAPI = await response.json();
 
     this.setState({ data: dataAPI.results, loading:false, });
@@ -52,9 +56,7 @@ class App extends Component {
     this.handleSortOrderData();
  }
    
-   componentDidMount(){
-     this.fetchData();
-   }
+  
 
 
   
@@ -64,14 +66,16 @@ class App extends Component {
     }
     return ( 
       <div className="App">
-        <div>
-          <h1> POKEMONS</h1>
-          <input onChange={this.updateQuery} type='text' ></input>
-          <DropDown onChangeOrder={this.changeOrder} onChange={this.fetchData} />
-          <button onClick={this.fetchData}>Search Pokemon</button>
-        </div>
+          <div>
+            <h1> POKEMONS</h1>
+            <input onChange={this.updateQuery} type='text' ></input>
+            <DropDown onChangeOrder={this.changeOrder} onChange={this.fetchData} />
+            <button onClick={this.fetchData}>Search Pokemon</button>
+          </div>
+          <Scroll>
           <PokeList pokeData={this.state.data}/>
-      </div>
+          </Scroll>
+        </div>
      );
   }
 }
