@@ -4,11 +4,11 @@ import PokeItem from './PokeItem.js';
 class PokeList extends Component {
     render() { 
         return (  
-            <ul>
+            <div>
                 {this.props.pokeData.map((item) => {
                     return <PokeItem key={item.id} pokes={item}/>;
                 })}
-            </ul>
+            </div>
         );
     }
 }
