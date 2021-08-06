@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './Poke.css';
 
 class PokeItem extends Component {
     render() { 
         const {pokes} = this.props;
         return (  
-            <div>
+            <div className='poke-div'>
                 <img src={pokes.url_image} alt='pokers'  width='200'/>
                 <h4>{pokes.pokemon}</h4>
                 <p>Type: {pokes.type_1}</p>

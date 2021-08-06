@@ -66,7 +66,7 @@ class App extends Component {
     }
     return ( 
       <div className="App">
-          <div>
+          <div className='search-div'>
             <h1> POKEMONS</h1>
             <input onChange={this.updateQuery} type='text' ></input>
             <DropDown onChangeOrder={this.changeOrder} onChange={this.fetchData} />

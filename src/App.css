@@ -1,7 +1,18 @@
-.App {
-  text-align: center;
+body{
+  overflow: hidden;
   background-image: url('https://images.wallpapersden.com/image/download/pokemon-pikachu-art_a25tbW6UmZqaraWkpJRmbmdlrWZlbWU.jpg');
   background-repeat: no-repeat ;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  justify-content: space-around;
+  align-items: center;
+  /* background-image: url('https://images.wallpapersden.com/image/download/pokemon-pikachu-art_a25tbW6UmZqaraWkpJRmbmdlrWZlbWU.jpg');
+  background-repeat: no-repeat ; */
 }
 
 .App-logo {
@@ -37,4 +48,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.search-div{
+  margin-bottom: 30px;
+  font-family: 'Press Start 2P', cursive;
 }
