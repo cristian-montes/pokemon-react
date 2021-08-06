@@ -8,18 +8,17 @@ class App extends Component {
             data:[], 
             loading: true,
             query: null, 
-            sortOrder: null
+            sortOrder: 'asc'
            };
 
+
+    //GET DATA FROM APIS
    fetchData = async () => {
       let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
       if(this.state.query){
         url = url + `?pokemon=${this.state.query}`;
       } 
-      if(this.state.sortOrder){
-        url = url + `?sort=defense&direction=${this.state.sortOrder}`;
-      }
-      // console.log('in the button');
+
       let response = await fetch(url);
       console.log(response);
       let dataAPI = await response.json();
@@ -28,18 +27,36 @@ class App extends Component {
      
    };
 
+
+   handleSortOrderData = async (event) => {
+    let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
+    if(this.state.sortOrder){
+      url = url + `?sort=defense&direction=${this.state.sortOrder}`;
+    }
+    let response = await fetch(url);
+    console.log(response);
+    let dataAPI = await response.json();
+
+    this.setState({ data: dataAPI.results, loading:false, });
+   }
+
   updateQuery = (event) => {
     this.setState({query: event.target.value});
   }
 
+
+
+//GET USER IMPUTS
   changeOrder = async (event) => {
     await this.setState({sortOrder: event.target.value});
-    this.fetchData();
+    this.handleSortOrderData();
  }
    
    componentDidMount(){
      this.fetchData();
    }
+
+
   
   render() { 
     if(this.state.loading){
