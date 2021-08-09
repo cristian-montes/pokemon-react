@@ -20,11 +20,15 @@ componentDidMount(){
 //GET DATA FROM APIS
 fetchData = async () => {
   let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
+   let searchParams =new URLSearchParams();
+   
+   searchParams.set('page', this.state.page)
 
   if(this.state.query){
-    url = url + `?pokemon=${this.state.query}`;
+     searchParams.set('pokemon', this.state.query);
   } 
 
+  url = url + `?${searchParams.toString()}`;
   let response = await fetch(url);
   let dataAPI = await response.json();
 
@@ -57,7 +61,10 @@ await this.setState({sortOrder: event.target.value});
 this.handleSortOrderData();
 }
 
-
+nextPage = async () => {
+    await this.setState({ page: this.state.page + 1})
+    this.fetchData();
+};
 
 
 
@@ -75,7 +82,7 @@ return (
 
     <div className='control-div'>
         <button>Previous Page</button>
-        <button>Next Page</button>
+        <button onClick={this.nextPage}>Next Page</button>
         <button>Last Page</button>
     </div>
 
