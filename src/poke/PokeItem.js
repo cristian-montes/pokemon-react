@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './Poke.css';
 
 class PokeItem extends Component {
@@ -12,6 +13,10 @@ class PokeItem extends Component {
                 <p>Shape: {pokes.shape}</p>
                 <p>Ability 1: {pokes.ability_1}</p>
                 <p>Defense: {pokes.defense}</p>
+                <Link to={`/pokemon/${pokes._id}`}>
+                    <p> Click for More Info</p>
+                </Link>
+               
             </div>
         );
     }
