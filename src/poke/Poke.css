@@ -8,7 +8,10 @@
     height: 500px;
     background-color: #ed865a;
     border-radius: 20px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px; */
+    margin: 15px;
 }
 
 h4,p {
@@ -24,4 +27,14 @@ h4,p {
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0jUmNqUzyoJRCuQx-L4yeYVP-BsnUotywQ&usqp=CAU');
     background-repeat: no-repeat;
     border-radius: 30px;
+}
+
+.list-div{
+ width: auto;
+ height: auto;
+ display: flex;
+ flex-direction: row;
+ flex-wrap: wrap;
+ margin-left: 210px;
+
 }

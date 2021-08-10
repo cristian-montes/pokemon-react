@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PokeList from './poke/PokeList';
 import DropDown from './dropDown/DropDownList';
 import Scroll from './scroll/Scroll';
+import LoadingSpinner from './loading/LoadingSpinner';
 
 class PokeContainer extends Component {
     state = { 
@@ -118,7 +119,7 @@ return (
         
     </div>
 
-     {loading && <h1>LOADING...</h1>}
+     {loading && <LoadingSpinner/>}
      {!loading && (
       <div>
         <Scroll>
