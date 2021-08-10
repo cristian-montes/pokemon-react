@@ -21,12 +21,14 @@ componentDidMount(){
 fetchData = async () => {
   let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
    let searchParams =new URLSearchParams();
-   
    searchParams.set('page', this.state.page)
 
-  if(this.state.query){
+   if(this.state.query){
      searchParams.set('pokemon', this.state.query);
   } 
+
+  searchParams.set('sort', 'defense');
+  searchParams.set('direction', this.state.sortOrder);
 
   url = url + `?${searchParams.toString()}`;
   let response = await fetch(url);
@@ -41,9 +43,14 @@ fetchData = async () => {
 //SORT DATA USING DROPDOWN
 handleSortOrderData = async (event) => {
 let url = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
+let searchParams = new URLSearchParams();
+
 if(this.state.sortOrder){
-  url = url + `?sort=defense&direction=${this.state.sortOrder}`;
+    searchParams.set('sort', 'defense');
+    searchParams.set('direction', this.state.sortOrder);
 }
+url = url + `?${searchParams.toString()}`;
+// url = url + `?sort=defense&direction=${this.state.sortOrder}`;
 let response = await fetch(url);
 let dataAPI = await response.json();
 
@@ -57,8 +64,10 @@ this.setState({query: event.target.value});
 
 //GET USER IMPUTS TO SORT
 changeOrder = async (event) => {
-await this.setState({sortOrder: event.target.value});
-this.handleSortOrderData();
+    console.log('in change order');
+    await this.setState({sortOrder: event.target.value});
+    this.handleSortOrderData();
+// this.fetchData();
 }
 
 nextPage = async () => {
@@ -66,24 +75,47 @@ nextPage = async () => {
     this.fetchData();
 };
 
+previousPage = async () => {
+    await this.setState({ page: this.state.page - 1})
+    this.fetchData();
+};
+
+lastPage = async () => {
+    await this.setState({ page: this.state.lastPage})
+    this.fetchData();
+};
+
+searchPoke = async ()=>{
+    await this.setState({page: 1});
+    this.fetchData();
+}
+
 
 
 render() { 
-const {loading} = this.state;
+const {loading,sortOrder} = this.state;
 
 return ( 
   <div className="App">
       <div className='search-div'>
         <h1> POKEMONS</h1>
         <input onChange={this.updateQuery} type='text' ></input>
-        <DropDown onChangeOrder={this.changeOrder} onChange={this.fetchData} />
-        <button onClick={this.fetchData}>Search Pokemon</button>
+        <DropDown valor={sortOrder} changeSort={this.changeOrder} />
+        <button onClick={this.searchPoke}>Search Pokemon</button>
     </div>
 
     <div className='control-div'>
-        <button>Previous Page</button>
-        <button onClick={this.nextPage}>Next Page</button>
-        <button>Last Page</button>
+        {this.state.page > 1 && (
+           <button onClick={this.previousPage}>Previous Page</button>
+        )}
+
+        {this.state.page < this.state.lastPage && (
+            <>
+                <button onClick={this.nextPage}>Next Page</button>
+                <button onClick={this.lastPage}>Last Page</button>
+            </>
+        )}
+        
     </div>
 
      {loading && <h1>LOADING...</h1>}
