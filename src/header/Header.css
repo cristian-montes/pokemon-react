@@ -1,0 +1,31 @@
+.header-div {
+    height: 100px;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    color: #fe5f75;
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Press Start 2P', cursive;
+    padding-left: 80px;
+}
+
+.links {
+    text-transform: none;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.links a {
+    color: #fe5f75;
+    text-decoration: none;
+    margin-right: 140px;
+}
+
+.links a.active,
+.links a:hover {
+    color: #f8f4a6;
+}

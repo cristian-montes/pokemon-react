@@ -4,7 +4,7 @@ class DropDown extends Component {
     render() { 
         return (  
             <div>
-                <select onChange={this.props.onChangeOrder}>
+                <select defaultValue={this.props.valor} onChange={this.props.changeSort}>
                     <option  value='asc'> Ascending </option>
                     <option value='desc'> Descending </option>
                 </select>
@@ -12,5 +12,5 @@ class DropDown extends Component {
         );
     }
 }
- 
+
 export default DropDown;

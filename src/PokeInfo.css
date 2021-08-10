@@ -1,0 +1,36 @@
+.info-div{
+    display: flex;
+    width: auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    background-image: url('https://www.pngkit.com/png/full/446-4464430_pokemon-pokeball-game-go-icon-free-pokemon-go.png');
+    
+}
+.poke-info {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border: 5px solid #282c34;
+    border-radius: 10%;
+    background: linear-gradient(90deg, rgba(68,67,83,1) 13%, rgba(70,184,175,0.5410539215686274) 53%, rgba(0,212,255,1) 100%);
+
+}
+
+.poke-info p{
+ font-size: 10px;
+ color: d00000;
+}
+
+.infoImg {
+    width: 100%;
+    /* border: 5px solid #282c34;
+    border-radius: 10%; */
+    /* background: linear-gradient(90deg, rgba(68,67,83,1) 13%, rgba(70,184,175,0.5410539215686274) 53%, rgba(0,212,255,1) 100%); */
+}
