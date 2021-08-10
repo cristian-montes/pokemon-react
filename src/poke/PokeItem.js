@@ -7,7 +7,7 @@ class PokeItem extends Component {
         const {pokes} = this.props;
         return (  
             <div className='poke-div'>
-                <img src={pokes.url_image} alt='pokers'  width='200'/>
+                <img className='pokeImg' src={pokes.url_image} alt='pokers'  width='200'/>
                 <h4>{pokes.pokemon}</h4>
                 <p>Type: {pokes.type_1}</p>
                 <p>Shape: {pokes.shape}</p>

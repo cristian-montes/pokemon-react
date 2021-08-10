@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PokeInfo.css';
 
 class PokeInfo extends Component {
     state = { data:{} };
@@ -21,11 +22,23 @@ class PokeInfo extends Component {
         const {data} = this.state;
         console.log(data);
         return (  
-            <div>
-                <h1> {data.pokemon}</h1>
+            <div className='info-div'>
+                
                 <div className='poke-info'>
-                    <img src={data.url_image} alt='poke'/>
+                    <img src={data.url_image} alt='pok' className='infoImg'/>
+                    <p> {data.pokemon}</p>
+                    <p>Type 1:{data.type_1}</p>
+                    <p>Type 2:{data.type_2}</p>
+                    <p>HP:{data.hp}</p>
+                    <p>Attack:{data.attack}</p>
+                    <p>Defense:{data.defense}</p>
+                    <p>Speed:{data.speed}</p>
+                    <p>Ability 1:{data.ability_1}</p>
+                    <p>Ability 2:{data.ability_2}</p>
+                    <p>Shape:{data.shape}</p>
+                    <p>Pokebase: {data.pokebase}</p>
                 </div>
+                
             </div>
         );
     }

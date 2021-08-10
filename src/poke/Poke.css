@@ -15,11 +15,11 @@ h4,p {
     font-family: 'Press Start 2P', cursive;
 }
 
-p {
+.poke-div p {
     color: #ffffff;
 }
 
-img{
+.pokeImg{
     margin-top: 30px;
     background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQb0jUmNqUzyoJRCuQx-L4yeYVP-BsnUotywQ&usqp=CAU');
     background-repeat: no-repeat;
