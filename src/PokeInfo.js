@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import LoadingSpinner from './loading/LoadingSpinner';
 import './PokeInfo.css';
 
 class PokeInfo extends Component {
-    state = { data:{} };
+    state = { data:{}, loading: true };
     
     componentDidMount(){
         this.loadData();
@@ -14,16 +15,16 @@ class PokeInfo extends Component {
         console.log(url);
         const response = await fetch(url);
         const dataAPI = await response.json();
-        this.setState({data: dataAPI})
+        this.setState({data: dataAPI, loading:false})
     }
 
     render() { 
         // const {id} = this.props.match.params;
-        const {data} = this.state;
+        const {data, loading} = this.state;
         console.log(data);
         return (  
             <div className='info-div'>
-                
+                {loading && <h1> LOADING... <LoadingSpinner/></h1> }
                 <div className='poke-info'>
                     <img src={data.url_image} alt='pok' className='infoImg'/>
                     <p> {data.pokemon}</p>

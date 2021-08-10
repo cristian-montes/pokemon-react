@@ -8,7 +8,7 @@ class Header extends Component {
         return (  
             <div className='header-div'>
                 <div> 
-                    POKEMON WORLD
+                    POKEMON
                 </div>
 
                 <div className='links'>

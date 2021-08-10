@@ -119,7 +119,7 @@ return (
         
     </div>
 
-     {loading && <LoadingSpinner/>}
+    {loading && <h1> LOADING... <LoadingSpinner/></h1> }
      {!loading && (
       <div>
         <Scroll>

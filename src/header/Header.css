@@ -1,14 +1,14 @@
 .header-div {
-    min-width: 100vw;
     height: 100px;
-    background-color: #282c34;
-    color: #f8f4a6;
+    background-image: linear-gradient(315deg, #537895 0%, #09203f 74%);
+    color: #fe5f75;
     font-size: 2rem;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    padding-left: 80px;
 }
 
 .links {
@@ -20,8 +20,9 @@
 }
 
 .links a {
-    color: #e5d4ed;
+    color: #fe5f75;
     text-decoration: none;
+    margin-right: 140px;
 }
 
 .links a.active,

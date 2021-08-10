@@ -1,0 +1,15 @@
+.home-div{
+    min-width: 100vw;
+    background-image: url('./homeBackground.png');
+    /* margin-left: 100px; */
+    height: 850px;
+    background-repeat: no-repeat;
+    background-size:cover;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.home-div h2 {
+    margin-top: 40px;
+    margin-right: 90px;
+}
