@@ -7,9 +7,13 @@
     background-size:cover;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
+    margin-top: -3rem;
+
 }
 
 .home-div h2 {
+    padding-top: 2rem;
+    padding-right: 2rem;
     margin-top: 40px;
     margin-right: 90px;
 }
