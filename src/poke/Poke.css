@@ -6,7 +6,7 @@
     border-color: black;
     width: 350px;
     height: 500px;
-    background-color: #ed865a;
+    background-image: linear-gradient(to right top, #d3c733, #e0b12a, #e89b2c, #ed8536, #ec6f42);
     border-radius: 20px;
     /* margin-bottom: 15px;
     margin-right: 10px;
